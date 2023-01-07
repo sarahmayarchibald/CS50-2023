@@ -15,7 +15,7 @@ int main(void)
     int max_size;
     do
     {
-        max_size = get_int("Enter the maximum size of the population? ");
+        max_size = get_int("Enter the maximum size of the population: ");
     }
     while (max_size < min_size);
 
