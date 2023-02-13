@@ -23,24 +23,31 @@ int main(void)
 
 int compute_score(string word)
 {
-
+    // TODO: Compute and return score for string
     printf("Words: %s\n", word);
 
-    // TODO: Compute and return score for string
     for(int i = 0; i < strlen(word); i++)
     {
-        if (islower(word[i]) || isupper(word[i]))
+        // Declaring the ASCII equivalent for each letter
+        int ascii = word[i];
+
+        // Turn uppercase to lower case through ASCII
+        if (isupper(word[i]))
         {
-            //printf("ASCII letter: %i\n", word[i]);
-            // Thinks the letter are in order
-            printf("Scrabble point: %i\n", POINTS[i]);
+            ascii = ascii + 32;
+            printf("ASCII letter: %i\n", ascii);
         }
-        else
+        if (islower(word[i]))
         {
-            return 1;
+            //int ascii = word[i];
+            printf("ASCII letter: %i\n", ascii);
         }
 
+        int letterScore = ascii - 97;
+        printf("Letter Score: %i\n", POINTS[letterScore]);
 
+        //do while???
     }
+
     return 0;
 }
