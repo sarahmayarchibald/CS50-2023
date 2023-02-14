@@ -18,36 +18,48 @@ int main(void)
     int score1 = compute_score(word1);
     int score2 = compute_score(word2);
 
-    // TODO: Print the winner
+    // Print the winner depending on the score's result
+    if (score1 > score2)
+    {
+        printf("Player 1 wins!\n");
+    }
+    if (score2 > score1)
+    {
+        printf("Player 2 wins!\n");
+    }
+    else if (score1 == score2)
+    {
+        printf("Tie!\n");
+    }
 }
 
 int compute_score(string word)
 {
-    // TODO: Compute and return score for string
-    printf("Words: %s\n", word);
+    // Declare words' score starting at 0
+    int wordScore = 0;
 
-    for(int i = 0; i < strlen(word); i++)
+    // Loop over each letter
+    for (int i = 0; i < strlen(word); i++)
     {
-        // Declaring the ASCII equivalent for each letter
+        // Declare the ASCII equivalent for each letter
         int ascii = word[i];
-
-        // Turn uppercase to lower case through ASCII
-        if (isupper(word[i]))
+        // If uppercase, calculate lower case ASCII
+        if (ascii >= 65 && ascii <= 90)
         {
             ascii = ascii + 32;
-            printf("ASCII letter: %i\n", ascii);
         }
-        if (islower(word[i]))
+        // For lower case ASCII, link ASCII number to index of the array and add points from index
+        if (ascii >= 97 && ascii <= 122)
         {
-            //int ascii = word[i];
-            printf("ASCII letter: %i\n", ascii);
+            int letterScore = POINTS[ascii - 97];
+            wordScore += letterScore;
         }
-
-        int letterScore = ascii - 97;
-        printf("Letter Score: %i\n", POINTS[letterScore]);
-
-        //do while???
+        // Don't add score for special characters of the ASCII
+        else if (ascii < 65 || ascii > 90 || ascii < 97 || ascii > 123)
+        {
+            wordScore += 0;
+        }
     }
-
-    return 0;
+    // Return variable to have the words' score
+    return wordScore;
 }
