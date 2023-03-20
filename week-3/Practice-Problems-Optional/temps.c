@@ -62,16 +62,27 @@ int main(void)
 // TODO: Sort cities by temperature in descending order
 void sort_cities(void)
 {
-    // Add your code here
-    for (int i = 0; i < NUM_CITIES; i++)
-    {
-        if (temps[i].temp > temps[0].temp)
-        {
-            temps[0].temp = temps[i].temp;
-            temps[0].city = temps[i].city;
-            //printf("%s: %i\n", temps[i].city, temps[i].temp);
-        }
+    int n = NUM_CITIES;
 
+    // Loop to access each array element
+    for (int i = 0 ; i < n - 1; i++)
+    {
+        //Loop to compare array elements
+        for (int j = 0 ; j < n - i - 1; j++)
+        {
+            //Compare two adjacent elements
+            if (temps[j].temp < temps[j + 1].temp)
+            {
+                int swap = temps[j].temp;
+                string citySwap = temps[j].city;
+
+                temps[j].temp = temps[j + 1].temp;
+                temps[j].city = temps[j + 1].city;
+
+                temps[j + 1].temp = swap;
+                temps[j + 1].city = citySwap;
+            }
+        }
     }
 
 }
