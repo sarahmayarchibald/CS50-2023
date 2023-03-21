@@ -187,23 +187,34 @@ int find_min(void)
         if (candidates[i].eliminated == false && candidates[i].votes < minvotes)
         {
             minvotes = candidates[i].votes;
-            printf("Minvotes %s\n", candidates[i].name);
         }
     }
 
     return minvotes;
 }
-
 // Return true if the election is tied between all candidates, false otherwise
 bool is_tie(int min)
 {
-    // TODO
-    return false;
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (candidates[i].eliminated == false && candidates[i].votes > min)
+        {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 // Eliminate the candidate (or candidates) in last place
 void eliminate(int min)
 {
-    // TODO
-    return;
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (candidates[i].eliminated == false && candidates[i].votes == min)
+        {
+            candidates[i].eliminated = true;
+        }
+    }
+    return ;
 }
