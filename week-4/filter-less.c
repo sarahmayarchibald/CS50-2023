@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include <math.h>
 
-//image[0][0].rgbtRed = 0;
-
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {
