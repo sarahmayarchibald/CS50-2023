@@ -1,12 +1,10 @@
 # CS50-2023
 
-<ul>
   <li><a href="https://github.com/sarahmayarchibald/CS50-2023/tree/main/week-1">Week 1</a> - C: </li>
   <p>Lab: Population</p>
   <p>Pset week 1: Cash</p>
   <p>Pset week 1: Hello</p>
   <p>Pset week 1: Mario</p>
-</ul>
 
 <ul>
   <a href="https://github.com/sarahmayarchibald/CS50-2023/tree/main/week-2">Week 2</a> - Arrays:
