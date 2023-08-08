@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <title>Trivia!</title>
+    <script>
+            // TODO: Add code to check answers to questions
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Trivia!</h1>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Part 1: Multiple Choice </h2>
+            <hr>
+            <h3>Which is the oldest underground station?</h3>
+            <!-- TODO: Add multiple choice question here -->
+            <button class="incorrect">Paddington</button>
+            <button class="incorrect">Euston Square</button>
+            <button class="incorrect">Picadilly Circus</button>
+            <button class="incorrect">Leicester Square</button>
+            <button class="correct">Baker Street</button>
+        </div>
+
+        <div class="section">
+            <h2>Part 2: Free Response</h2>
+            <hr>
+            <h3>In which year the oldest underground station was built?</h3>
+            <!-- TODO: Add free response question here -->
+            <input type="text" name="answer" id="freeAnswer">
+            <button id="btn-submit">Submit</button>
+        </div>
+    </div>
+    <script>
+        // First part
+        const btnIncorrect = document.querySelectorAll('.incorrect');
+        const btnCorrect = document.querySelector('.correct');
+        const section = document.querySelector('.section');
+        const incorrect = document.createElement('p');
+        const correct = document.createElement('p');
+
+        // Second part
+        const container = document.querySelector('.container');
+        const input = document.querySelector('input');
+        const submit = document.getElementById('btn-submit');
+        const result = document.createElement('p');
+
+        // First part
+        btnIncorrect.forEach(button => {
+            button.addEventListener('click', () => {
+                button.style.backgroundColor = 'red';
+                incorrect.innerText = 'Incorrect';
+                section.appendChild(incorrect);
+                section.removeChild(correct);
+
+            });
+        });
+
+        btnCorrect.addEventListener('click', () => {
+            btnCorrect.style.backgroundColor = 'green';
+            correct.innerText = 'Correct';
+            section.appendChild(correct);
+            section.removeChild(incorrect);
+
+        });
+
+        // Second part
+        submit.addEventListener('click', () => {
+            const freeAnswer = parseInt(document.getElementById('freeAnswer').value);
+
+            if (freeAnswer === 1863) {
+                input.style.color = 'green';
+                result.innerText = 'Correct';
+            } else {
+                input.style.color = 'red';
+                result.innerText = 'Incorrect';
+            }
+
+            container.append(result);
+        });
+
+    </script>
+</body>
+
+</html>
